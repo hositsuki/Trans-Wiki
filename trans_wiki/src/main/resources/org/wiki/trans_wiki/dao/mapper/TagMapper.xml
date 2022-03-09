@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--MyBatis配置文件-->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.wiki.trans_wiki.dao.mapper.TagMapper">
+
+    <sql id="all">
+        id,avatar,tag_name as tagName
+    </sql>
+    <select id="findTagsByArticleId" parameterType="long" resultType="org.wiki.trans_wiki.dao.pojo.Tag">
+        select id, avatar, tag_name as tagName
+        from ms_tag
+        where id in (select tag_id from ms_article_tag where article_id = #{articleId});
+    </select>
+
+    <!--        List<Tag> findTagsByArticleId(Long articleId);
+    在这个文件中，id代表方法名，parameterType表示输入变量的名字，resultType表示泛型的类型-->
+
+
+</mapper>
