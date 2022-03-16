@@ -1,7 +1,10 @@
 package org.wiki.trans_wiki.service;
 
+import org.wiki.trans_wiki.vo.ArticleVo;
 import org.wiki.trans_wiki.vo.Result;
 import org.wiki.trans_wiki.vo.params.PageParams;
+
+import java.util.List;
 
 public interface ArticleService {
     /**
@@ -11,6 +14,6 @@ public interface ArticleService {
      * @Param [pageParams]
      * @return org.wiki.trans_wiki.vo.Result
      **/
-    Result listArticle(PageParams pageParams);
+    List<ArticleVo> listArticle(PageParams pageParams);
 
 }

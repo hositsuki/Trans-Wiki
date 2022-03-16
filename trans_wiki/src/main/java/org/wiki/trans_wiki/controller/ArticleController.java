@@ -29,6 +29,8 @@ public class ArticleController {
     @PostMapping
     public Result listArticle(@RequestBody PageParams pageParams) {
         //ArticleVo 页面接收的数据
-        return articleService.listArticle(pageParams);
+        List<ArticleVo> articles = articleService.listArticle(pageParams);
+
+        return Result.success(articles);
     }
 }

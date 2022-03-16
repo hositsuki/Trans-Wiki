@@ -12,7 +12,6 @@ import org.wiki.trans_wiki.service.ArticleService;
 import org.wiki.trans_wiki.service.SysUserService;
 import org.wiki.trans_wiki.service.TagService;
 import org.wiki.trans_wiki.vo.ArticleVo;
-import org.wiki.trans_wiki.vo.Result;
 import org.wiki.trans_wiki.vo.params.PageParams;
 
 import javax.annotation.Resource;
@@ -32,7 +31,7 @@ public class ArticleServiceImpl implements ArticleService {
     private SysUserService sysUserService;
 
     @Override
-    public Result listArticle(PageParams pageParams) {
+    public List<ArticleVo> listArticle(PageParams pageParams) {
 
         /**
          * @Author 月下夜桜夢
@@ -48,7 +47,7 @@ public class ArticleServiceImpl implements ArticleService {
         List<Article> records = articlePage.getRecords();
         List<ArticleVo> articleVoList = copyList(records, true, true);
 
-        return Result.success(articleVoList);
+        return articleVoList;
     }
 
     private List<ArticleVo> copyList(List<Article> records, boolean isTag, boolean isAuthor) {
